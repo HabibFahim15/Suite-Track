@@ -47,12 +47,12 @@ const Navbar = () => {
       </nav>
 
       {/* Buttons */}
-      <a
-        href="#"
-        className="hidden rounded-lg bg-gray-200 px-8 py-3 text-center text-sm font-semibold text-gray-500 outline-none ring-indigo-300 transition duration-100 hover:bg-gray-300 focus-visible:ring active:text-gray-700 md:text-base lg:inline-block"
+      <Link
+        href="signin"
+        className="hidden rounded-lg bg-blue-500 px-8 py-3 text-center text-sm font-semibold text-slate-100 outline-none ring-indigo-300 transition duration-100 hover:bg-gray-300 focus-visible:ring active:text-gray-700 md:text-base lg:inline-block"
       >
-        Contact Sales
-      </a>
+        Login
+      </Link>
 
       <button
         type="button"
