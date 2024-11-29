@@ -1,4 +1,4 @@
-import { connectDB } from "@/lib/connectDB";
+import { connectDB } from "../../../lib/connectDB.js";
 
 export const POST = async (request) => {
 
