@@ -40,7 +40,7 @@ const page = () => {
           </div>
 
           <div className="flex items-center justify-center bg-gray-100 p-4">
-            <p className="text-center text-sm text-gray-500">Don't have an account? <Link href="register" className="text-indigo-500 transition duration-100 hover:text-indigo-600 active:text-indigo-700">Register</Link></p>
+            <p className="text-center text-sm text-gray-500">Don't have an account? <Link href="signup" className="text-indigo-500 transition duration-100 hover:text-indigo-600 active:text-indigo-700">Register</Link></p>
           </div>
         </form>
       </div>
