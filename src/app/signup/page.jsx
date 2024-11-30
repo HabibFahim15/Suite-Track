@@ -14,7 +14,7 @@ const signUp = () => {
       password : event.target.password.value
     }
     console.log(newUser);
-    const resp = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/signup/api`, {
+    const resp = await fetch(`${process.env.NEXT_BASE_URL}/signup/api`, {
       method : "POST",
       body: JSON.stringify(newUser),
       headers : {
