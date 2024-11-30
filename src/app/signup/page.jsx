@@ -4,7 +4,7 @@ import Link from "next/link";
 
 const signUp = () => {
 
-  const handleRegisterSubmit = (event) => {
+  const handleRegisterSubmit = async (event) => {
     
     event.preventDefault();
     const newUser = {
@@ -14,6 +14,17 @@ const signUp = () => {
       password : event.target.password.value
     }
     console.log(newUser);
+    const resp = await fetch("http://localhost:3000/signup/api", {
+      method : "POST",
+      body: JSON.stringify(newUser),
+      headers : {
+        "Content-Type" : "application/json"
+      }
+    })
+    console.log(resp);
+    if(resp.ok) {
+      event.target.reset();
+    }
   }
   return (
     <div className="bg-white py-6 sm:py-8 lg:py-12">
@@ -46,7 +57,7 @@ const signUp = () => {
           </div>
 
           <div className="flex items-center justify-center bg-gray-100 p-4">
-            <p className="text-center text-sm text-gray-500">Already have an account? <Link href="login" className="text-indigo-500 transition duration-100 hover:text-indigo-600 active:text-indigo-700">Login</Link></p>
+            <p className="text-center text-sm text-gray-500">Already have an account? <Link href="signin" className="text-indigo-500 transition duration-100 hover:text-indigo-600 active:text-indigo-700">Login</Link></p>
           </div>
         </form>
       </div>

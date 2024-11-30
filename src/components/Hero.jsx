@@ -1,13 +1,16 @@
+import Image from "next/image";
 
 const Hero = () => {
   return (
     <section className="min-h-96 relative flex flex-1 shrink-0 items-center justify-center overflow-hidden rounded-lg bg-gray-100 py-16 shadow-lg md:py-20 xl:py-48">
       {/* Background Image */}
-      <img
-        src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/2d/5b/16/74/rooftop-pool.jpg?w=1200&h=-1&s=1"
+      <Image
+        src="https://i.ibb.co.com/b1DKMzH/1-0.jpg"
         loading="lazy"
         alt="Photo by Fakurian Design"
-        className="absolute rounded-lg inset-0 h-full w-full object-cover object-center"
+        className="absolute rounded-lg inset-0  object-cover object-center"
+        height={1080}
+        width={1920}
       />
 
       {/* Overlay */}
