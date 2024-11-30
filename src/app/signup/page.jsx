@@ -1,31 +1,40 @@
 "use client"
 import Link from "next/link";
 
-
 const signUp = () => {
 
   const handleRegisterSubmit = async (event) => {
-    
     event.preventDefault();
     const newUser = {
-      name : event.target.username.value,
-      email : event.target.email.value,
-      photoURL : event.target.photoURL.value,
-      password : event.target.password.value
-    }
+      name: event.target.username.value,
+      email: event.target.email.value,
+      photoURL: event.target.photoURL.value,
+      password: event.target.password.value,
+    };
+
     console.log(newUser);
-    const resp = await fetch(`${process.env.NEXT_BASE_URL}/signup/api`, {
-      method : "POST",
-      body: JSON.stringify(newUser),
-      headers : {
-        "Content-Type" : "application/json"
+
+    try {
+      const resp = await fetch(`${process.env.NEXT_BASE_URL}/signup/api`, {
+        method: "POST",
+        body: JSON.stringify(newUser),
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+
+      console.log(resp);
+
+      if (resp.ok) {
+        event.target.reset();
+      } else {
+        console.error("Failed to register user:", await resp.json());
       }
-    })
-    console.log(resp);
-    if(resp.ok) {
-      event.target.reset();
+    } catch (error) {
+      console.error("Error during registration:", error);
     }
-  }
+  };
+
   return (
     <div className="bg-white py-6 sm:py-8 lg:py-12">
       <div className="mx-auto max-w-screen-2xl px-4 md:px-8">

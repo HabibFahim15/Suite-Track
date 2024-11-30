@@ -2,19 +2,26 @@
 import Link from "next/link";
 import { signIn } from "next-auth/react";
 
-
 const page = () => {
-
   const handleLoginSubmit = async (event) => {
     event.preventDefault();
     const email = event.target.email.value;
     const password = event.target.password.value;
-    const resp = await signIn('credentials', {
-      email,
-      password, 
-      redirect:false,
-    });
-    console.log(resp);
+
+    try {
+      const resp = await signIn('credentials', {
+        email,
+        password,
+        redirect: false,
+      });
+      console.log(resp);
+
+      if (!resp.ok) {
+        console.error("Login failed:", resp.error);
+      }
+    } catch (error) {
+      console.error("Error during login:", error);
+    }
   };
 
   return (
